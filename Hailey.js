@@ -145,7 +145,7 @@ function drawAlltrees() {
   for (var i = 0; i < 4; i++) {
     penUp();
     turnTo(0);
-    moveTo(randomNumber(0,320 ),randomNumber(230,450 ));
+    moveTo(randomNumber(0,320 ),randomNumber(290,450 ));
     drawTree();
   }
 }
@@ -154,7 +154,7 @@ function drawAllSnowmen() {
   for (var i = 0; i < 3; i++) {
     penUp();
     turnTo(0);
-    moveTo(randomNumber(0, 320), randomNumber(230, 450));
+    moveTo(randomNumber(0, 320), randomNumber(260, 450));
     drawSnowman();
   }
 }
