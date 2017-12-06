@@ -1,4 +1,3 @@
-
 drawAlltrees();
 drawAllSnowmen();
 
@@ -26,15 +25,17 @@ function drawTree() {
 }
 //draws the base of the tree
 function drawTreeBark() {
+  penUp();
   penColor(rgb(117,65,9));
-  penWidth(5);
+  penWidth(10);
+  penDown();
   moveForward(75);
 }
 //draws the right side of the tree  branches
 function drawRightTreeBranch() {
   penColor(rgb(117,65,9));
   penDown();
-  penWidth(3);
+  penWidth(4);
   turnRight(45);
   moveForward(40);
   turnRight(180);
@@ -57,7 +58,7 @@ function drawRightTreeBranch() {
 function drawLeftTreeBranch() {
   penColor(rgb(117,65,9));
   penDown();
-  penWidth(3);
+  penWidth(4);
   turnLeft(45);
   moveForward(40);
   turnRight(180);
@@ -88,6 +89,14 @@ function drawSnowman() {
   penUp();
   move(0, -19);
   drawSnowmanFace();
+  penUp();
+  move(8, 20);
+  penDown();
+  drawSnowmanArm();
+  penUp();
+  move(-25, 0);
+  penDown();
+  drawSnowmanArm();
 }
 //The snowmans face: includes eyes, mouth, and nose
 function drawSnowmanFace() {
@@ -98,6 +107,7 @@ function drawSnowmanFace() {
   dot(13);
   penUp();
   move(-5, -5);
+  //the eyes of the snowman
   penDown();
   penColor("black");
   dot(1);
@@ -109,11 +119,13 @@ function drawSnowmanFace() {
   penUp();
   move(-5, 5);
   penDown();
+  //this is the mouth
   penColor(rgb(255,125,3));
   dot(1);
   penUp();
   move(-5, 3);
   penDown();
+  //this is the mouth/smile
   penColor("black");
   penWidth(2);
   turnLeft(180);
@@ -127,6 +139,7 @@ function drawSnowmanBody() {
   penColor(rgb(222,255,222));
   dot(17);
   turnLeft(180);
+  //the top button starts
   penUp();
   move(0, -5);
   penDown();
@@ -146,6 +159,23 @@ function drawSnowmanButton() {
   penDown();
   dot(1);
 }
+//the function to add arms to the snowman
+function drawSnowmanArm() {
+  turnRight(60);
+  penColor("black");
+  penWidth(2);
+  moveForward(25);
+  turnRight(180);
+  moveForward(7);
+  turnRight(90);
+  moveForward(7);
+  turnRight(180);
+  moveForward(14);
+  turnRight(180);
+  moveForward(7);
+  turnLeft(90);
+  moveForward(18);
+}
 //Draws all your trees with loop
 function drawAlltrees() {
   for (var i = 0; i < 4; i++) {
@@ -164,3 +194,4 @@ function drawAllSnowmen() {
     drawSnowman();
   }
 }
+hide();
