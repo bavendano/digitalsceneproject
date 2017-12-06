@@ -78,6 +78,8 @@ function drawLeftTreeBranch() {
 }
 //draws entier snowman top to bottom
 function drawSnowman() {
+  dot(24);
+  penColor("black");
   penColor(rgb(222,255,222));
   dot(23);
   penUp();
@@ -90,6 +92,8 @@ function drawSnowman() {
 //The snowmans face: includes eyes, mouth, and nose
 function drawSnowmanFace() {
   penDown();
+  penColor("black");
+  dot(14);
   penColor(rgb(222,255,222));
   dot(13);
   penUp();
@@ -118,6 +122,8 @@ function drawSnowmanFace() {
 //Draws the snowmans torso and its buttons on it
 function drawSnowmanBody() {
   penDown();
+  penColor("black");
+  dot(18);
   penColor(rgb(222,255,222));
   dot(17);
   turnLeft(180);
