@@ -1,20 +1,18 @@
 //Michelle wrote this code
-//these functions are called to draw every aspect of the road and every aspect of the sky 
 drawRoad();
 drawSky();
 
 //Michelle wrote this code
-//this function draws all the road 
 function drawRoad() {
   drawPavement();
   drawroadDivider();
 }
 
 //Michelle wrote this code
-// draws the black pavement of the road 
 function drawPavement() {
   penUp();
   penWidth(37);
+//turtle is positioned in order to draw a pavement that extends from one end to another
   moveTo(0, 200);
   penDown();
   turnRight(90);
@@ -22,12 +20,12 @@ function drawPavement() {
 }
 
 //Michelle wrote this code
-//this function draws the yellow line that divides the road into two lanes
 function drawroadDivider() {
   penUp();
   penColor("yellow");
   penWidth(4);
   penDown();
+//turtle is positioned to draw a straight line
   moveTo(0, 200);
   turnTo(0);
   turnLeft(90);
@@ -35,18 +33,18 @@ function drawroadDivider() {
 }
 
 //Michelle wrote this code
-//this function draws all the clouds and colors the background to create the sky 
 function drawSky() {
   skyblueBackground();
   drawallClouds();
 }
 
 //Michelle wrote this code
-//this function colors part of the background skyblue 
 function skyblueBackground() {
   penUp();
   penColor("skyblue");
+//width of pen is increased so all the section of the sky is colored skyblue
   penWidth(193);
+//turtle is aligned in a specific position in order to draw a straight line from one end of the screen to the other end
   moveTo(318, 90);
   penDown();
   moveForward(300);
@@ -56,31 +54,37 @@ function skyblueBackground() {
 //this function draws all the clouds on the skyblue background
 function drawallClouds() {
   for (var i = 0; i < 10; i++) {
+    //the value ranges inputed in the two parameters below, determine the size of the endpoints and midpoints of the cloud
+    //the radius of the two endpoints should always be smaller than the radius of the two midpoints
     drawCloud(randomNumber(7, 11), randomNumber(12, 16));
   }
 }
 
 //Michelle wrote this code
-//this function draws one cloud
 //the cloud is created with four dots
-//this function includes parameters for the first/last dots of the cloud and for the two dots located in between the first/last points 
-//parameter ¨endpointsize¨ defines the radius size for the fisrts/last dots
-//parameter ¨midpointsize¨ defines the radius size for the two dots located between the first/last dots
-//the fist/last dots should have a smaller radius size than the two dots located in the middle
+//a cloud contains two endpoints and two midpoints
 function drawCloud(endpointsize, midpointsize) {
   penUp();
   penRGB(239, 244, 255, 0.9);
   penWidth(6);
+//moves the turtle to a random locatiom in order to begin drawing a cloud
   moveTo(randomNumber(5, 286), randomNumber(32, 73));
   turnLeft(180);
   dot(endpointsize);
+//parameter ¨endpointsize¨ defines the radius size for the endpoints
   positionDot();
+  drawCloudMiddle(midpointsize);
+//parameter ¨midpointsize¨ defines the radius size for the two dots midpoints
+  dot(endpointsize);
+  positionDot();
+}
+
+//Michelle wrote this code
+function drawCloudMiddle(midpointsize){
   for (var i = 0; i < 2; i++) {
     dot(midpointsize);
     positionDot();
   }
-  dot(endpointsize);
-  positionDot();
 }
 
 //Michelle wrote this code
