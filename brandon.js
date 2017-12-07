@@ -1,4 +1,3 @@
-
 //Brandon wrote this code
 function drawAllHouses() {
   //makes three houses in a row vertically, 80 units away from each other
@@ -240,7 +239,7 @@ function drawRightWindowCross() {
 drawAllSnowflakes();
 function drawAllSnowflakes() {
   //draws 300 snowflakes
-  for (var i = 0; i < 250; i++) {
+  for (var i = 0; i < 300; i++) {
     drawSnowflake();
   }
 }
@@ -274,7 +273,7 @@ function snowflakeDesign(angle, length) {
   //position turtle in middle of snowflake
   turnTo(0);
   turnLeft(angle);
-  //draws final diagonal on snowflake, mirror version of he first diagonal, but different angle
+  //draws final diagonal on snowflake, mirror version of the first diagonal, but different angle
   snowflakeDiagonals(length);
   turnTo(0);
 }
