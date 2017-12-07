@@ -1,89 +1,80 @@
-drawAlltrees();
 drawAllSnowmen();
+drawAllTrees();
 
+//Haileys Function
 //Draws finished tree
 function drawTree() {
+  show();
   drawTreeBark();
-  turnRight(180);
-  moveForward(10);
-  turnRight(90);
-  drawRightTreeBranch();
-  turnRight(90);
-  moveForward(15);
-  turnLeft(90);
+  turnAround();
   drawLeftTreeBranch();
-  turnLeft(90);
-  moveForward(17);
-  turnRight(90);
   drawRightTreeBranch();
-  turnRight(90);
-  moveForward(10);
-  turnLeft(90);
   drawLeftTreeBranch();
-  turnLeft(90);
-  moveForward(23);
+  drawRightTreeBranch();
+  drawLeftTreeBranch();
 }
+//Haileys Function
 //draws the base of the tree
 function drawTreeBark() {
   penUp();
   penColor(rgb(117,65,9));
-  penWidth(10);
+  penWidth(7);
   penDown();
   moveForward(75);
 }
-//draws the right side of the tree  branches
-function drawRightTreeBranch() {
+//Haileys Function
+//draws the basic foundation tree  branchs
+function drawTreeBranch() {
   penColor(rgb(117,65,9));
   penDown();
   penWidth(4);
   turnRight(45);
   moveForward(40);
-  turnRight(180);
-  moveForward(10);
-  turnLeft(90);
-  moveForward(15);
-  turnLeft(180);
-  moveForward(15);
-  turnLeft(90);
-  moveForward(10);
-  turnRight(90);
-  moveForward(15);
-  turnLeft(180);
-  moveForward(15);
-  turnRight(90);
+  turnAround();
+  moveForward(7);
+  drawSmallTreeBranchOne();
+  moveForward(7);
+  drawSmallTreeBranchTwo();
+  moveForward(7);
+  drawSmallTreeBranchOne();
   moveForward(20);
-  turnLeft(45);
+  turnRight(45);
 }
-//draws the left side of the tree branches
+//Haileys Function
+//draws one side of the smaller tree branch
+function drawSmallTreeBranchOne() {
+  turnLeft(90);
+  moveForward(10);
+  turnAround();
+  moveForward(10);
+  turnLeft(90);
+}
+//Haileys Function
+//draws the other side of the smaller tree branch
+function drawSmallTreeBranchTwo() {
+  turnRight(90);
+  moveForward(10);
+  turnAround();
+  moveForward(10);
+  turnRight(90);
+}
+//Haileys Function
 function drawLeftTreeBranch() {
-  penColor(rgb(117,65,9));
-  penDown();
-  penWidth(4);
-  turnLeft(45);
-  moveForward(40);
-  turnRight(180);
-  moveForward(10);
-  turnLeft(90);
-  moveForward(15);
-  turnLeft(180);
-  moveForward(15);
-  turnLeft(90);
-  moveForward(10);
   turnRight(90);
+  drawTreeBranch();
   moveForward(15);
-  turnLeft(180);
-  moveForward(15);
-  turnRight(90);
-  moveForward(20);
-  turnRight(45);
 }
+//Haileys Function
+function drawRightTreeBranch() {
+  turnAround();
+  drawTreeBranch();
+  turnLeft(90);
+  moveForward(15);
+}
+//Haileys Function
 //draws entier snowman top to bottom
 function drawSnowman() {
-  dot(24);
-  penColor("black");
-  penColor(rgb(222,255,222));
-  dot(23);
-  penUp();
+  drawSnowmanOutline(24, 23);
   move(0, -35);
   drawSnowmanBody();
   penUp();
@@ -98,47 +89,56 @@ function drawSnowman() {
   penDown();
   drawSnowmanArm();
 }
+//Haileys Function
 //The snowmans face: includes eyes, mouth, and nose
 function drawSnowmanFace() {
-  penDown();
-  penColor("black");
-  dot(14);
-  penColor(rgb(222,255,222));
-  dot(13);
-  penUp();
+  drawSnowmanOutline(14, 13);
   move(-5, -5);
   //the eyes of the snowman
-  penDown();
-  penColor("black");
-  dot(1);
-  penUp();
+  drawSnowmanEye();
   move(10, 0);
+  drawSnowmanEye();
+  move(-5, 5);
+  drawSnowmanNose();
+  move(-5, 3);
+  drawSnowmanMouth();
+}
+//Haileys Function
+function drawSnowmanOutline(size, sizetwo) {
+  penDown();
+  penColor("black");
+  dot(size);
+  penColor(rgb(222,255,222));
+  dot(sizetwo);
+  penUp();
+}
+//Haileys Function
+function drawSnowmanEye() {
   penDown();
   penColor("black");
   dot(1);
   penUp();
-  move(-5, 5);
+}
+//Haileys Function
+function drawSnowmanNose() {
   penDown();
-  //this is the mouth
   penColor(rgb(255,125,3));
   dot(1);
   penUp();
-  move(-5, 3);
+}
+//Haileys Function
+function drawSnowmanMouth() {
   penDown();
-  //this is the mouth/smile
   penColor("black");
   penWidth(2);
-  turnLeft(180);
+  turnAround();
   arcLeft(180, 5);
 }
+//Haileys Function
 //Draws the snowmans torso and its buttons on it
 function drawSnowmanBody() {
-  penDown();
-  penColor("black");
-  dot(18);
-  penColor(rgb(222,255,222));
-  dot(17);
-  turnLeft(180);
+  drawSnowmanOutline(18, 17);
+  turnAround();
   //the top button starts
   penUp();
   move(0, -5);
@@ -147,11 +147,12 @@ function drawSnowmanBody() {
   dot(1);
   drawSnowmanButton();
   drawSnowmanButton();
-  turnLeft(180);
+  turnAround();
   penUp();
   move(0, -15);
   penDown();
 }
+//Haileys Function
 //A simple way to add the buttons on the snowman
 function drawSnowmanButton() {
   penUp();
@@ -159,25 +160,37 @@ function drawSnowmanButton() {
   penDown();
   dot(1);
 }
+//Haileys Function
 //the function to add arms to the snowman
 function drawSnowmanArm() {
   turnRight(60);
   penColor("black");
   penWidth(2);
   moveForward(25);
-  turnRight(180);
+  turnAround();
   moveForward(7);
-  turnRight(90);
-  moveForward(7);
-  turnRight(180);
-  moveForward(14);
-  turnRight(180);
-  moveForward(7);
-  turnLeft(90);
+  drawSnowmanFingers();
   moveForward(18);
 }
+//Haileys Function
+//draws the small extra things on the snowman. Its his "fingers"
+function drawSnowmanFingers() {
+  turnRight(90);
+  moveForward(7);
+  turnAround();
+  moveForward(14);
+  turnAround();
+  moveForward(7);
+  turnLeft(90);
+}
+//Haileys Function
+function turnAround() {
+  turnLeft(90);
+  turnLeft(90);
+}
+//Haileys Function
 //Draws all your trees with loop
-function drawAlltrees() {
+function drawAllTrees() {
   for (var i = 0; i < 4; i++) {
     penUp();
     turnTo(0);
@@ -185,6 +198,7 @@ function drawAlltrees() {
     drawTree();
   }
 }
+//Haileys Function
 //Draw All snowmen with loop
 function drawAllSnowmen() {
   for (var i = 0; i < 3; i++) {
